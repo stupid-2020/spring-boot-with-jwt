@@ -1,0 +1,38 @@
+/*!
+ * SCRIPT: index.css
+ * AUTHOR: Wu (https://github.com/stupid-2020)
+ * DATE  : 17-JAN-2022
+ * NOTE  : 
+ */
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    font-family: "Lato", Arial, sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.8;
+    color: grey;
+    text-align: left;
+    background-color: #fff;
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Formules.JPG/2560px-Formules.JPG);
+    background-size: cover;
+}
+
+.circle-avatar {
+    position: relative;
+    top: -60px;
+    margin: 20px auto;
+    margin-bottom: -60px;
+    width: 80px;
+    height: 80px;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    line-height: 70px;
+    border-radius: 50%;
+    border: 3px solid white;
+    color: #fff;
+}
