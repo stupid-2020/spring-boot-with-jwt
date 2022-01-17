@@ -83,14 +83,16 @@ To logout the website, please go to http://localhost:8080/logout.
 <br />
 
 # Security Consideration
-No matter which of following methods is used, never use JWT without HTTPS.  Otherwise, your application is vulnerable to Man-in-the-middle (MITM) attacks.
+If you have run the code and tried the JWT, you are authorized to use the API and get the data.  You can also get the data using the `curl` command with the JWT at **_ANOTHER_** machine.  Or you can replace the JWT stored in Browser with the one from `curl` command (or vice versa), you can still get the data.  As you may be aware, if one gets your JWT, one would have full access to your account and could do any operation as you (before JWT is expired).
+
+To prevent your JWT from being stolen, never use JWT without HTTPS.  Otherwise, your application is vulnerable to Man-in-the-middle (MITM) attacks.
 
 ## Store JWT in localStorage and Authorization header
 In general, JWT can be sent in `Authorization` header using `Bearer` schema:
 ```
 Authorization: Bearer <JWT>
 ```
-And lot of examples use [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage).  However it is [not recommended](https://cheatsheetseries.owasp.org/cheatsheets/HTML5_Security_Cheat_Sheet.html#local-storage).
+A lot of examples use [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage).  It is [not recommended](https://cheatsheetseries.owasp.org/cheatsheets/HTML5_Security_Cheat_Sheet.html#local-storage) but it is ok if you have good Cross-Site Scripting (XSS) prevention.
 
 ## Store JWT in Cookie
 This is the way this demonstration use.
@@ -106,14 +108,19 @@ This is the way this demonstration use.
     }
 ```
 
-The httpOnly means that the cookie can not be read using JavaScript but can still be sent back to the server in HTTP requests.  General cookie can be read by JavaScript (say, `document.cookie`).  That means the application is vulnerable to Cross-site scripting (XSS).
+The client side (Browser) does **_NOT_** need to handle the JWT nor sent the `Authorization` header.  In fact, the client side need to The httpOnly means that the cookie can **_NOT_** be read using JavaScript but can still be sent back to the server in HTTP requests.  General cookie can be read by JavaScript (say, `document.cookie`) and is vulnerable to XSS attack.
 
 ## Token Lifetime
-Using `httpOnly` is not completely bulletproof.  A long-lived JWT is definitely a bad idea.  In addition, you have to secure your application to against both XSS and CSRF:
+Using `httpOnly` is not completely bulletproof.  A long-lived JWT is definitely a bad idea.  The better way is to protect your application against both XSS and CSRF:
 
 1. [Cross-Site Request Forgery Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html)
 2. [Cross Site Scripting Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
 3. [JWT Security Best Practices](https://curity.io/resources/learn/jwt-best-practices/)
+
+## Something Missed
+1. Spring Data JPA + MySQL is used but will not be discussed here
+2. Refresh Token will **_NOT_** be implemented here
+
 <br />
 
 # References
