@@ -120,6 +120,7 @@ Using `httpOnly` is not completely bulletproof.  A long-lived JWT is definitely 
 ## Something Missed
 1. Spring Data JPA + MySQL is used but will not be discussed here
 2. Refresh Token will **_NOT_** be implemented here
+2. Signup page is **_NOT_** implemented
 
 <br />
 
