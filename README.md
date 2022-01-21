@@ -135,10 +135,12 @@ Using `httpOnly` is not completely bulletproof.  A long-lived JWT is definitely 
 <br />
 
 # Acknowledge
-1. [Background Image: Mathematics formulas by Eusebius](https://commons.wikimedia.org/wiki/File:Formules.JPG)
-2. [Card Image: Dülmen, Kirchspiel by Dietmar Rabich](https://commons.wikimedia.org/wiki/File:D%C3%BClmen,_Kirchspiel,_B%C3%B6rnste,_Felder_und_B%C3%A4ume_--_2017_--_3220-6.jpg)
-3. [Card Image: Dülmen, Merfeld by Dietmar Rabich](https://commons.wikimedia.org/wiki/File:D%C3%BClmen,_Merfeld,_Feldweg_am_M%C3%BChlenbach_--_2021_--_4278-80.jpg)
-4. [Card Image: Santorin (GR), Exomytis by Dietmar Rabich](https://commons.wikimedia.org/wiki/File:Santorin_(GR),_Exomytis,_Vlychada_Beach_--_2017_--_2999_(bw).jpg)
+## Background Image
+* [Mathematics formulas - © Guillaume Piolle](https://commons.wikimedia.org/wiki/File:Formules.JPG)
+## Card Images
+* [Dietmar Rabich / Wikimedia Commons / “Dülmen, Kirchspiel, Börnste, Felder und Bäume -- 2017 -- 3220-6” / CC BY-SA 4.0](https://commons.wikimedia.org/wiki/File:D%C3%BClmen,_Kirchspiel,_B%C3%B6rnste,_Felder_und_B%C3%A4ume_--_2017_--_3220-6.jpg)
+* [Dietmar Rabich / Wikimedia Commons / “Dülmen, Merfeld, Feldweg am Mühlenbach -- 2021 -- 4278-80” / CC BY-SA 4.0](https://commons.wikimedia.org/wiki/File:D%C3%BClmen,_Merfeld,_Feldweg_am_M%C3%BChlenbach_--_2021_--_4278-80.jpg)
+* [Dietmar Rabich / Wikimedia Commons / “Santorin (GR), Exomytis, Vlychada Beach -- 2017 -- 2999 (bw)” / CC BY-SA 4.0](https://commons.wikimedia.org/wiki/File:Santorin_(GR),_Exomytis,_Vlychada_Beach_--_2017_--_2999_(bw).jpg)
 
 <br />
 
