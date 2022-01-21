@@ -83,7 +83,7 @@ To logout the website, please go to http://localhost:8080/logout.
 <br />
 
 # Security Consideration
-If you have run the code and tried the JWT, you are authorized to use the API and get the data.  You can also get the data using the `curl` command with the JWT at **_ANOTHER_** machine.  Or you can replace the JWT stored in Browser with the one from `curl` command (or vice versa), you can still get the data.  As you may be aware, if one gets your JWT, one would have full access to your account and could do any operation as you (before JWT is expired).
+If you have run the code and tried the JWT, you are authorized to use the API and get the data.  You can also get the data using the `curl` command with the JWT at **_ANOTHER_** machine.  Or you can replace the JWT stored in Browser with the one from `curl` command (or vice versa), you can still get the data.  As you may be aware, if one gets your JWT, one would have full access to your account and could do any operation as you even have logout the application (before JWT is expired).
 
 To prevent your JWT from being stolen, never use JWT without HTTPS.  Otherwise, your application is vulnerable to Man-in-the-middle (MITM) attacks.
 
