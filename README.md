@@ -34,8 +34,8 @@ mysql> GRANT ALL PRIVILEGES ON YOUR_DB_NAME.* to 'YOUR_DB_USER'@'%';
 ## Run the Code
 ```
 ~$ cd /path/to/spring-boot-auto0-jwt
-sb-auto0-jwt$ mvn clean install
-sb-auto0-jwt$ mvn spring-boot:run
+spring-boot-auto0-jwt$ mvn clean install
+spring-boot-auto0-jwt$ mvn spring-boot:run
 ```
 
 You have to populate the records for user role once:
@@ -83,7 +83,7 @@ To logout the website, please go to http://localhost:8080/logout.
 <br />
 
 # Security Consideration
-If you have run the code and tried the JWT, you are authorized to use the API and get the data.  You can also get the data using the `curl` command with the JWT at **_ANOTHER_** machine.  Or you can replace the JWT stored in Browser with the one from `curl` command (or vice versa), you can still get the data.  As you may be aware, if one gets your JWT, one would have full access to your account and could do any operation as you even have logout the application (before JWT is expired).
+If you have run the code and tried the JWT, you are authorized to use the API and get the data.  You can also get the data using the `curl` command with the JWT at **_ANOTHER_** machine.  Or you can replace the JWT stored in Browser with the one from `curl` command (or vice versa), you still get the data.  As you may be aware, if one gets your JWT, one would have full access to your account and could do any operation as you even you have logout the application (before JWT is expired).
 
 To prevent your JWT from being stolen, never use JWT without HTTPS.  Otherwise, your application is vulnerable to Man-in-the-middle (MITM) attacks.
 
@@ -108,16 +108,20 @@ This is the way this demonstration use.
     }
 ```
 
-The client side (Browser) does **_NOT_** need to handle the JWT nor sent the `Authorization` header.  In fact, the client side need to The httpOnly means that the cookie can **_NOT_** be read using JavaScript but can still be sent back to the server in HTTP requests.  General cookie can be read by JavaScript (say, `document.cookie`) and is vulnerable to XSS attack.
+In this way, the client side (Browser) does **_NOT_** need to handle the JWT nor sent the `Authorization` header (no headers property in our Axios requests).  However, general cookies can be read by JavaScript (say, `document.cookie`) and is vulnerable to XSS attack.  To avoid this, the server side need to set the `HttpOnly` flag on the cookie it creates.  It means that the cookie can **_NOT_** be read using JavaScript but can still be sent back to the server in HTTP requests. (And that's why you need a safe browser!)
+
+Note: this spring boot application supports both ways (Using `Authorization` header or sending JWT as cookie).
 
 ## Token Lifetime
-Using `httpOnly` is not completely bulletproof.  A long-lived JWT is definitely a bad idea.  The better way is to protect your application against both XSS and CSRF:
+Using `HttpOnly` is not completely bulletproof.  A long-lived JWT is definitely a bad idea.  The better way is to protect your application against both XSS and CSRF:
 
 1. [Cross-Site Request Forgery Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html)
-2. [Cross Site Scripting Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+2. [Cross-Site Scripting Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
 3. [JWT Security Best Practices](https://curity.io/resources/learn/jwt-best-practices/)
 
-## Something Missed
+<br />
+
+# Something Missed
 1. Spring Data JPA + MySQL is used but will not be discussed here
 2. Refresh Token will **_NOT_** be implemented here
 2. Signup page is **_NOT_** implemented
